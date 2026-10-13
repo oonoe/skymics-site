@@ -1,10 +1,10 @@
 /* =========================================================
-   Material Visuals — логика сайта
+   SkyMics — логика сайта
    ========================================================= */
 (function () {
   "use strict";
 
-  const CFG = window.MATERIALVISUALS || {};
+  const CFG = window.SKYMICS || {};
   const socials = CFG.socials || {};
   const screenshots = CFG.screenshots || [];
 
