@@ -365,7 +365,7 @@
         b.classList.toggle("is-active", on);
         b.setAttribute("aria-checked", String(on));
       });
-      if (meta) meta.setAttribute("content", theme === "light" ? "#f3f6fb" : "#05070d");
+      if (meta) meta.setAttribute("content", theme === "light" ? "#f2f4f8" : "#0c0d11");
       if (save) {
         try {
           localStorage.setItem("mv-theme", theme);
