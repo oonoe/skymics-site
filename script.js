@@ -174,7 +174,7 @@
   $$(".nav__link").forEach((l) => l.addEventListener("click", closeNav));
 
   /* ---------------- активный пункт навигации ---------------- */
-  const sections = ["features", "compare", "gallery", "download", "changelog", "faq"]
+  const sections = ["features", "compare", "download", "changelog", "faq"]
     .map((id) => document.getElementById(id))
     .filter(Boolean);
 
