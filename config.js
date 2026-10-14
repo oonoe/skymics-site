@@ -11,7 +11,7 @@ window.SKYMICS = {
   downloadUrl: "", // например: "https://github.com/user/repo/releases/download/v1.0/SkyMics-1.0.jar"
 
   version: "1.0",
-  mcVersion: "1.21.11",
+  mcVersion: "1.21.4",
 
   /* Ссылки на соцсети. Пустая строка — пункт не показывается. */
   socials: {
