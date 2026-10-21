@@ -741,7 +741,7 @@ section[id] {
   position: relative;
   z-index: 1;
   flex: 1;
-  min-height: 76svh;
+  min-height: 70svh;
   display: flex;
   align-items: center;
   justify-content: center;
