@@ -6,7 +6,6 @@
 
   const CFG = window.SKYMICS || {};
   const socials = CFG.socials || {};
-  const screenshots = CFG.screenshots || [];
 
   /* ---------------- утилиты ---------------- */
   const $ = (sel, root = document) => root.querySelector(sel);
@@ -82,70 +81,6 @@
     }
   });
 
-  /* ---------------- галерея ---------------- */
-  const grid = $("#gallery-grid");
-  if (grid) {
-    screenshots.forEach((shot, i) => {
-      const fig = document.createElement("figure");
-      fig.className = "shot";
-      if (shot.wide) fig.classList.add("shot--wide");
-      fig.style.margin = "0";
-
-      const img = document.createElement("img");
-      img.src = shot.src;
-      img.alt = shot.title || `Скриншот ${i + 1}`;
-      img.loading = "lazy";
-
-      const cap = document.createElement("figcaption");
-      cap.className = "shot__caption";
-      cap.textContent = shot.title || `Скриншот ${i + 1}`;
-
-      img.addEventListener("error", () => {
-        fig.classList.add("shot--placeholder");
-        fig.innerHTML = `<div><b>${shot.title || "Скриншот " + (i + 1)}</b><span>положи файл: ${shot.src}</span></div>`;
-      });
-
-      fig.append(img, cap);
-      fig.addEventListener("click", () => {
-        if (fig.classList.contains("shot--placeholder")) return;
-        openLightbox(shot.src, shot.title || "");
-      });
-
-      grid.appendChild(fig);
-    });
-  }
-
-  /* ---------------- лайтбокс ---------------- */
-  const lightbox = $("#lightbox");
-  const lightboxImg = $("#lightbox-img");
-  const lightboxCap = $("#lightbox-caption");
-
-  function openLightbox(src, caption) {
-    if (!lightbox) return;
-    lightboxImg.src = src;
-    lightboxImg.alt = caption;
-    lightboxCap.textContent = caption;
-    lightbox.hidden = false;
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeLightbox() {
-    if (!lightbox) return;
-    lightbox.hidden = true;
-    lightboxImg.src = "";
-    document.body.style.overflow = "";
-  }
-
-  if (lightbox) {
-    $(".lightbox__close", lightbox).addEventListener("click", closeLightbox);
-    lightbox.addEventListener("click", (e) => {
-      if (e.target === lightbox) closeLightbox();
-    });
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeLightbox();
-    });
-  }
-
   /* ---------------- шапка при скролле ---------------- */
   const header = $("#header");
   const onScroll = () => {
@@ -174,7 +109,7 @@
   $$(".nav__link").forEach((l) => l.addEventListener("click", closeNav));
 
   /* ---------------- активный пункт навигации ---------------- */
-  const sections = ["features", "compare", "download", "changelog", "faq"]
+  const sections = ["features", "how", "compare", "download", "changelog", "faq"]
     .map((id) => document.getElementById(id))
     .filter(Boolean);
 
@@ -238,15 +173,6 @@
   } else {
     revealEls.forEach((el) => el.classList.add("is-visible"));
   }
-
-  /* ---------------- подсветка карточек курсором ---------------- */
-  $$(".card").forEach((card) => {
-    card.addEventListener("pointermove", (e) => {
-      const r = card.getBoundingClientRect();
-      card.style.setProperty("--mx", ((e.clientX - r.left) / r.width) * 100 + "%");
-      card.style.setProperty("--my", ((e.clientY - r.top) / r.height) * 100 + "%");
-    });
-  });
 
   /* ---------------- прогресс чтения страницы ---------------- */
   const progress = $("#scroll-progress");
