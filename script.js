@@ -106,10 +106,10 @@
     burger.setAttribute("aria-expanded", String(open));
   });
 
-  $$(".nav__link").forEach((l) => l.addEventListener("click", closeNav));
+  $$(".rail__link").forEach((l) => l.addEventListener("click", closeNav));
 
   /* ---------------- активный пункт навигации ---------------- */
-  const sections = ["features", "how", "compare", "download", "changelog", "faq"]
+  const sections = ["features", "how", "compare", "trust", "download", "changelog", "faq"]
     .map((id) => document.getElementById(id))
     .filter(Boolean);
 
@@ -118,7 +118,7 @@
       (entries) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
-          $$(".nav__link").forEach((l) => {
+          $$(".rail__link").forEach((l) => {
             l.classList.toggle("is-active", l.getAttribute("href") === "#" + entry.target.id);
           });
         });
