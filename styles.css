@@ -12,7 +12,7 @@
   --ink: #f5f7fb;
   --ink-2: #c6ccd8;
   --muted: #8b929f;
-  --faint: #5d6470;
+  --faint: #737b88;
   --glass: rgba(255, 255, 255, 0.045);
   --glass-2: rgba(255, 255, 255, 0.075);
   --glass-line: rgba(255, 255, 255, 0.1);
@@ -37,8 +37,8 @@
   --seg-active-ink: #0b0e13;
   --band: linear-gradient(180deg, rgba(255, 255, 255, 0.014), rgba(255, 255, 255, 0.03) 50%, rgba(255, 255, 255, 0.014));
   --band-line: rgba(255, 255, 255, 0.055);
-  --ghost: rgba(255, 255, 255, 0.13);
-  --ghost-soft: rgba(255, 255, 255, 0.07);
+  --ghost: rgba(255, 255, 255, 0.35);
+  --ghost-soft: rgba(255, 255, 255, 0.35);
   --ghost-line: rgba(255, 255, 255, 0.075);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --radius: 22px;
@@ -150,7 +150,7 @@ section[id] { scroll-margin-top: 108px; }
   position: relative; isolation: isolate; overflow: clip; min-height: 100svh;
   display: flex; flex-direction: column; justify-content: flex-end;
 }
-.hero__bg { position: absolute; inset: 0; z-index: -2; background: url("assets/hero-bg.jpg?v=10") center 32% / cover no-repeat; opacity: 0.55; filter: saturate(0.8) brightness(0.92); will-change: transform; }
+.hero__bg { position: absolute; inset: 0; z-index: -2; background: url("assets/hero-bg.jpg?v=11") center 32% / cover no-repeat; opacity: 0.55; filter: saturate(0.8) brightness(0.92); will-change: transform; }
 .hero__shade { position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.4) 30%, rgba(0, 0, 0, 0.55) 62%, var(--bg) 95%), radial-gradient(72% 60% at 50% 42%, transparent 30%, rgba(0, 0, 0, 0.55) 100%); }
 .hero__inner { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 380px); gap: clamp(28px, 4vw, 64px); align-items: end; padding: 0 clamp(24px, 4vw, 56px) clamp(28px, 4vw, 48px); }
 .hero__kicker { margin-bottom: 18px; }
@@ -199,7 +199,7 @@ section[id] { scroll-margin-top: 108px; }
 .rows { border-top: 1px solid var(--glass-line); }
 .row { display: grid; grid-template-columns: 92px minmax(0, 1fr) auto; gap: clamp(16px, 3vw, 40px); align-items: start; padding: 28px 8px; border-bottom: 1px solid var(--glass-line); transition: background 0.35s, padding-left 0.35s var(--ease); }
 .row:hover { background: rgba(255, 255, 255, 0.025); padding-left: 18px; }
-.row__num { font-size: clamp(19px, 2vw, 24px); font-weight: 800; letter-spacing: -0.02em; color: var(--ghost); font-variant-numeric: tabular-nums; line-height: 1.2; padding-top: 4px; }
+.row__num { font-size: clamp(19px, 2vw, 24px); font-weight: 800; letter-spacing: -0.02em; color: var(--faint); font-variant-numeric: tabular-nums; line-height: 1.2; padding-top: 4px; }
 .row__body { max-width: 720px; }
 .row__title { font-size: clamp(19px, 2vw, 23px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 7px; }
 .row__text { color: var(--muted); font-size: 14.5px; max-width: 64ch; }
@@ -385,7 +385,7 @@ section[id] { scroll-margin-top: 108px; }
 /* ---------- светлая тема ---------- */
 [data-theme="light"] {
   --bg: #eef1f6;
-  --ink: #0b0f16; --ink-2: #3b4350; --muted: #67707e; --faint: #97a0ad;
+  --ink: #0b0f16; --ink-2: #3b4350; --muted: #5f6774; --faint: #6b7380;
   --glass: rgba(255, 255, 255, 0.62); --glass-2: rgba(255, 255, 255, 0.86);
   --glass-line: rgba(15, 25, 45, 0.1); --glass-line-2: rgba(15, 25, 45, 0.2);
   --rim: inset 0 1px 0 rgba(255, 255, 255, 0.9);
@@ -398,7 +398,7 @@ section[id] { scroll-margin-top: 108px; }
   --seg-active: #121a26; --seg-active-ink: #f4f7fb;
   --band: linear-gradient(180deg, rgba(15, 25, 45, 0.012), rgba(15, 25, 45, 0.035) 50%, rgba(15, 25, 45, 0.012));
   --band-line: rgba(15, 25, 45, 0.06);
-  --ghost: rgba(15, 25, 45, 0.18); --ghost-soft: rgba(15, 25, 45, 0.08); --ghost-line: rgba(15, 25, 45, 0.14);
+  --ghost: #737b88; --ghost-soft: #7a8290; --ghost-line: rgba(15, 25, 45, 0.14);
 }
 [data-theme="light"] body::after { background: radial-gradient(120% 70% at 50% -10%, rgba(90, 130, 190, 0.12), transparent 60%); }
 [data-theme="light"] .bg-grid { background-image: linear-gradient(rgba(20, 40, 80, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(20, 40, 80, 0.06) 1px, transparent 1px); }
