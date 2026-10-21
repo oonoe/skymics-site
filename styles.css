@@ -695,6 +695,8 @@ section[id] {
   --glass-line: rgba(255, 255, 255, 0.13);
   --glass-line-2: rgba(255, 255, 255, 0.2);
   --rim: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --btn-grad: linear-gradient(180deg, #ffffff 0%, #e7edf5 52%, #cdd8e6 100%);
+  --btn-ink: #090c11;
 
   position: relative;
   isolation: isolate;
@@ -705,7 +707,7 @@ section[id] {
   position: absolute;
   inset: -160px 0 -60px;
   z-index: -2;
-  background: url("assets/hero-bg.jpg?v=8") center 32% / cover no-repeat;
+  background: url("assets/hero-bg.jpg?v=9") center 32% / cover no-repeat;
   opacity: 0.55;
   filter: saturate(0.8) brightness(0.92);
   will-change: transform;
@@ -1471,7 +1473,7 @@ section[id] {
   justify-content: space-between;
   gap: 14px;
   padding: 9px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid var(--glass-line);
   font-size: 13.5px;
 }
 
@@ -1747,7 +1749,7 @@ section[id] {
 .footer {
   position: relative;
   z-index: 1;
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  border-top: 1px solid var(--glass-line);
   padding: 58px 0 34px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent 40%);
 }
@@ -1838,7 +1840,7 @@ section[id] {
   flex-wrap: wrap;
   margin-top: 46px;
   padding-top: 22px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid var(--glass-line);
   color: var(--faint);
   font-size: 12.5px;
 }
@@ -2175,6 +2177,37 @@ section[id] {
 [data-theme="light"] .btn--ghost:hover {
   background: rgba(255, 255, 255, 0.85);
   border-color: rgba(15, 25, 45, 0.45);
+}
+
+/* внутри героя кнопки всегда светлые — герой тёмный в любой теме */
+[data-theme="light"] .hero .btn--primary,
+[data-theme="light"] .hero .btn--light {
+  background: linear-gradient(180deg, #ffffff 0%, #e7edf5 52%, #cdd8e6 100%);
+  color: #090c11;
+  border-color: rgba(255, 255, 255, 0.85);
+  box-shadow: inset 0 1px 0 #fff, inset 0 -1px 0 rgba(90, 110, 140, 0.25),
+    0 14px 38px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="light"] .hero .btn--primary:hover,
+[data-theme="light"] .hero .btn--light:hover {
+  background: linear-gradient(180deg, #ffffff 0%, #f2f6fb 50%, #dbe5f1 100%);
+  border-color: #fff;
+}
+
+[data-theme="light"] .hero .btn--primary::after {
+  background: linear-gradient(105deg, transparent 34%, rgba(255, 255, 255, 0.9) 50%, transparent 66%);
+}
+
+[data-theme="light"] .hero .btn--ghost {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.42);
+  color: #f5f7fb;
+}
+
+[data-theme="light"] .hero .btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.13);
+  border-color: rgba(255, 255, 255, 0.7);
 }
 
 [data-theme="light"] .theme-switch__btn.is-active {
